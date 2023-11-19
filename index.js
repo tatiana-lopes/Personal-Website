@@ -72,22 +72,86 @@ function animate() {
     console.log(currentTimeline);
 
     //change the class of the text from visible to hidden as the user scrolls down
-    if(currentTimeline > 0.03 && currentTimeline < 0.3){
+    if(currentTimeline < 0.03){
+        document.getElementById("text1").className = "text visible";
+        document.getElementById("text2").className = "text hidden";
+        document.getElementById("text3").className = "text hidden";
+        document.getElementById("text4").className = "text hidden";
+        document.getElementById("text5").className = "text hidden";
+        document.getElementById("text6").className = "text hidden";
+        document.getElementById("text7").className = "text hidden";
+    }
+
+    if(currentTimeline > 0.03 && currentTimeline < 0.16){
         document.getElementById("text1").className = "text hidden";
         document.getElementById("text2").className = "text visible";
         document.getElementById("text3").className = "text hidden";
+        document.getElementById("text4").className = "text hidden";
+        document.getElementById("text5").className = "text hidden";
+        document.getElementById("text6").className = "text hidden";
+        document.getElementById("text7").className = "text hidden";
+        document.getElementById("text8").className = "text hidden";
     }
     
-    if (currentTimeline > 0.3 && currentTimeline < 0.5){
-        document.getElementById("text2").className = "hidden";
+    if (currentTimeline > 0.16 && currentTimeline < 0.32){
+        document.getElementById("text2").className = "text hidden";
         document.getElementById("text3").className = "text visible";
-        document.getElementById("text4").className = "hidden";
+        document.getElementById("text4").className = "text hidden";
+        document.getElementById("text5").className = "text hidden";
+        document.getElementById("text6").className = "text hidden";
+        document.getElementById("text7").className = "text hidden";
+        document.getElementById("text8").className = "text hidden";
+
     }
 
-    if (currentTimeline > 0.5 && currentTimeline < 0.7){
-        document.getElementById("text2").className = "hidden";
-        document.getElementById("text3").className = "hidden";
+    if (currentTimeline > 0.32 && currentTimeline < 0.48){
+        document.getElementById("text2").className = "text hidden";
+        document.getElementById("text3").className = "text hidden";
         document.getElementById("text4").className = "text visible";
+        document.getElementById("text5").className = "text hidden";
+        document.getElementById("text6").className = "text hidden";
+        document.getElementById("text7").className = "text hidden";
+        document.getElementById("text8").className = "text hidden";
+    }
+
+    if (currentTimeline > 0.48 && currentTimeline < 0.64){
+        document.getElementById("text2").className = "text hidden";
+        document.getElementById("text3").className = "text hidden";
+        document.getElementById("text4").className = "text hidden";
+        document.getElementById("text5").className = "text visible";
+        document.getElementById("text6").className = "text hidden";
+        document.getElementById("text7").className = "text hidden";
+        document.getElementById("text8").className = "text hidden";
+    }
+
+    if (currentTimeline > 0.64 && currentTimeline < 0.8){
+        document.getElementById("text2").className = "text hidden";
+        document.getElementById("text3").className = "text hidden";
+        document.getElementById("text4").className = "text hidden";
+        document.getElementById("text5").className = "text hidden";
+        document.getElementById("text6").className = "text visible";
+        document.getElementById("text7").className = "text hidden";
+        document.getElementById("text8").className = "text hidden";
+    }
+
+    if (currentTimeline > 0.8 && currentTimeline < 0.96){
+        document.getElementById("text2").className = "text hidden";
+        document.getElementById("text3").className = "text hidden";
+        document.getElementById("text4").className = "text hidden";
+        document.getElementById("text5").className = "text hidden";
+        document.getElementById("text6").className = "text hidden";
+        document.getElementById("text7").className = "text visible";
+        document.getElementById("text8").className = "text hidden";
+    }
+
+    if (currentTimeline > 0.96){
+        document.getElementById("text2").className = "text hidden";
+        document.getElementById("text3").className = "text hidden";
+        document.getElementById("text4").className = "text hidden";
+        document.getElementById("text5").className = "text hidden";
+        document.getElementById("text6").className = "text hidden";
+        document.getElementById("text7").className = "text hidden";
+        document.getElementById("text8").className = "text visible";
     }
 
     renderer.render(scene, camera);
