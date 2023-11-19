@@ -73,15 +73,23 @@ function animate() {
 
     //change the class of the text from visible to hidden as the user scrolls down
     if(currentTimeline > 0.03 && currentTimeline < 0.3){
-        document.getElementById("text1").className = "hidden";
+        document.getElementById("text1").className = "text hidden";
         document.getElementById("text2").className = "text visible";
         document.getElementById("text3").className = "text hidden";
     }
     
-    if (currentTimeline > 0.3 && currentTimeline < 1){
+    if (currentTimeline > 0.3 && currentTimeline < 0.5){
         document.getElementById("text2").className = "hidden";
         document.getElementById("text3").className = "text visible";
+        document.getElementById("text4").className = "hidden";
     }
+
+    if (currentTimeline > 0.5 && currentTimeline < 0.7){
+        document.getElementById("text2").className = "hidden";
+        document.getElementById("text3").className = "hidden";
+        document.getElementById("text4").className = "text visible";
+    }
+
     renderer.render(scene, camera);
 }
 

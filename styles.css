@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 300;
     color: #fff; 
   }
@@ -41,7 +41,7 @@
     /*position just below the textTop div*/
     top: 10vh;
     width: 100%;
-    max-width: 560px;
+    max-width: 650px;
     border: 3px solid green;
     padding: 10px;
     text-align: center;
