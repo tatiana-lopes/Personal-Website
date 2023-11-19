@@ -51,8 +51,17 @@ const loader = new GLTFLoader();
 loader.load('./Assets/EarthGrouped.gltf', function (gltf) {
     earth = gltf.scene;
     scene.add(earth);
-    earth.position.set(0, -1, 0);
-    earth.scale.set(4, 4, 4);
+  
+
+    //adjust the scale  and the position of the earth if it is on a mobile device
+    if (window.innerWidth < 600) {
+        earth.scale.set(1.5, 1.5, 1.5);
+        earth.position.set(0, 0, 0);
+    }
+    else{
+        earth.scale.set(4, 4, 4); 
+        earth.position.set(0, -1, 0);
+    }
 
     animate();
 }, undefined, function (error) {
@@ -73,6 +82,7 @@ function animate() {
 
     //change the class of the text from visible to hidden as the user scrolls down
     if(currentTimeline < 0.03){
+        console.log("earthRotation 1:" + rotationX );
         document.getElementById("text1").className = "text visible";
         document.getElementById("text2").className = "text hidden";
         document.getElementById("text3").className = "text hidden";
@@ -83,6 +93,7 @@ function animate() {
     }
 
     if(currentTimeline > 0.03 && currentTimeline < 0.16){
+        console.log("earthRotation 2:" + rotationX );
         document.getElementById("text1").className = "text hidden";
         document.getElementById("text2").className = "text visible";
         document.getElementById("text3").className = "text hidden";
@@ -94,6 +105,7 @@ function animate() {
     }
     
     if (currentTimeline > 0.16 && currentTimeline < 0.32){
+        console.log("earthRotation 3:" + rotationX );
         document.getElementById("text2").className = "text hidden";
         document.getElementById("text3").className = "text visible";
         document.getElementById("text4").className = "text hidden";
@@ -105,6 +117,7 @@ function animate() {
     }
 
     if (currentTimeline > 0.32 && currentTimeline < 0.48){
+        console.log("earthRotation 4:" + rotationX );
         document.getElementById("text2").className = "text hidden";
         document.getElementById("text3").className = "text hidden";
         document.getElementById("text4").className = "text visible";
@@ -115,6 +128,7 @@ function animate() {
     }
 
     if (currentTimeline > 0.48 && currentTimeline < 0.64){
+        console.log("earthRotation 5:" + rotationX );
         document.getElementById("text2").className = "text hidden";
         document.getElementById("text3").className = "text hidden";
         document.getElementById("text4").className = "text hidden";
@@ -125,6 +139,7 @@ function animate() {
     }
 
     if (currentTimeline > 0.64 && currentTimeline < 0.8){
+        console.log("earthRotation 6:" + rotationX );
         document.getElementById("text2").className = "text hidden";
         document.getElementById("text3").className = "text hidden";
         document.getElementById("text4").className = "text hidden";
@@ -135,6 +150,7 @@ function animate() {
     }
 
     if (currentTimeline > 0.8 && currentTimeline < 0.96){
+        console.log("earthRotation 7:" + rotationX );
         document.getElementById("text2").className = "text hidden";
         document.getElementById("text3").className = "text hidden";
         document.getElementById("text4").className = "text hidden";
@@ -145,6 +161,7 @@ function animate() {
     }
 
     if (currentTimeline > 0.96){
+        console.log("earthRotation 8:" + rotationX );
         document.getElementById("text2").className = "text hidden";
         document.getElementById("text3").className = "text hidden";
         document.getElementById("text4").className = "text hidden";
