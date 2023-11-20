@@ -23,7 +23,19 @@
     top: 20;
   }
 
+ img {
+  float: left;
+  padding: 5px;
+ }
 
+ h2 {
+  text-align: left;
+  margin: 5px;
+ }
+
+.content{
+  text-align: left;
+}
 
   h1  {
     font-family: 'Oregano', cursive;
@@ -81,10 +93,5 @@
     font-size: 16px;
     margin:0em;
     max-width: 300px;
-     /*center the div*/
-    
-    
-     border: 3px solid green;
- 
   }
 }
