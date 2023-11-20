@@ -3,16 +3,19 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { CSS3DRenderer } from 'three/addons/renderers/CSS3DRenderer.js';
-
+import { Sky } from 'three/addons/objects/Sky.js';
 // Create a renderer
-let renderer = new THREE.WebGLRenderer();
+let renderer = new THREE.WebGLRenderer({alpha: true});
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.getElementById("Model3D").appendChild(renderer.domElement);
 
 // Create a scene
 let scene = new THREE.Scene();
-//add a blue background to the scene
-scene.background = new THREE.Color(0x0000ff);
+//add a gradient background to the scene
+scene.background = null
+
+// make the background transparent
+renderer.setClearColor(0x000000, 0);
 
 const fov = 60;
 const aspect = window.innerWidth / window.innerHeight;
@@ -66,11 +69,8 @@ loader.load('./Assets/Earth_WIP_1.gltf', function (gltf) {
     }
     else{
         earth.scale.set(4, 4, 4); 
-        earth.position.set(0, -1, 0);
+        earth.position.set(0, -1.5, 0);
     }
-
-   
-
 
     animate();
 }, undefined, function (error) {
@@ -209,7 +209,7 @@ window.addEventListener("resize", function () {
     }
     else{
         earth.scale.set(4, 4, 4); 
-        earth.position.set(0, -1, 0);
+        earth.position.set(0, -1.5, 0);
     }
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();

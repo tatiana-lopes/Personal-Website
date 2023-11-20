@@ -2,13 +2,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: #fff; 
+    color: black; 
   }
  
   ::-webkit-scrollbar{ display: none }
 
   body {
-    background-color: blue;
+    /*have a gradient blue sky color*/
+    background: rgb(213,255,255);
+    background: linear-gradient(180deg, rgba(213,255,255,1) 0%, rgba(117,208,240,1) 50%, rgba(29,98,157,1) 100%);
     /*how much i want to scroll down plus the actual height of the browser*/
     min-height: calc( 3000px + 100vh);
   }
@@ -30,7 +32,7 @@
     margin: auto;
     width: 100%;
     font-size: 60px;
-    padding: 10px;
+    padding: 15px;
     text-align: center;
   }
 
@@ -38,13 +40,13 @@
   div.text{
 
     font-family: 'PT Sans', sans-serif;
-    font-size: 18px;
+    font-size: 20px;
     position: fixed;
     /*position just below the textTop div*/
     top: 15vh;
     width: 100%;
     max-width: 900px;
-    border: 3px solid green;
+    /*border: 3px solid green;*/
     padding: 10px;
     text-align: center;
     top: 20%; /* 15vh from bottom of viewport */
