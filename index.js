@@ -21,7 +21,7 @@ const far = 1000;
 
 let camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
 // Set the camera position
-camera.position.set(0, 3, 5)
+camera.position.set(0, 3, 6)
 scene.add(camera);
 
 //how far down have I scrolled down the window
@@ -45,30 +45,39 @@ scene.add(light);
 let earth = null;
 
 const loader = new GLTFLoader();
-//const controls = new OrbitControls(camera, renderer.domElement);
+
 
 // Load the 3D model
-loader.load('./Assets/EarthGrouped.gltf', function (gltf) {
+loader.load('./Assets/Earth_WIP_1.gltf', function (gltf) {
     earth = gltf.scene;
     scene.add(earth);
   
 
     //adjust the scale  and the position of the earth if it is on a mobile device
     if (window.innerWidth < 600) {
-        earth.scale.set(1.5, 1.5, 1.5);
+        earth.scale.set(1.9, 1.9, 1.9);
         earth.position.set(0, 0, 0);
+    }
+
+    //adjust the scale and the position of the earth if it is on a an ipad
+    else if (window.innerWidth < 1025) {
+        earth.scale.set(2.5, 2.5, 2.5);
+        earth.position.set(0, -1, 0);
     }
     else{
         earth.scale.set(4, 4, 4); 
         earth.position.set(0, -1, 0);
     }
 
+   
+
+
     animate();
 }, undefined, function (error) {
     console.error(error);
 });
 
-//controls.update();
+
 
 // Create an animate function
 function animate() {
@@ -183,3 +192,27 @@ window.addEventListener("scroll",function(){
 window.onbeforeunload = function () {
     window.scrollTo(0, 0);
 }
+
+
+// position the earth always to the center of the screen when the window is resized
+window.addEventListener("resize", function () {
+    //adjust the scale  and the position of the earth if it is on a mobile device
+    if (window.innerWidth < 600) {
+        earth.scale.set(1.9, 1.9, 1.9);
+        earth.position.set(0, 0, 0);
+    }
+
+    //adjust the scale and the position of the earth if it is on a an ipad
+    else if (window.innerWidth < 1025) {
+        earth.scale.set(2.5, 2.5, 2.5);
+        earth.position.set(0, -1, 0);
+    }
+    else{
+        earth.scale.set(4, 4, 4); 
+        earth.position.set(0, -1, 0);
+    }
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+}, false);
