@@ -49,6 +49,11 @@ let earth = null;
 const loader = new GLTFLoader();
 
 
+
+//store the text classes in an array
+let textClasses = null;
+textClasses = document.getElementsByClassName("text");
+
 // Load the 3D model
 loader.load('./Assets/Earth_WIP_2.gltf', function (gltf) {
     earth = gltf.scene;
@@ -77,21 +82,37 @@ loader.load('./Assets/Earth_WIP_2.gltf', function (gltf) {
 });
 
 
+//const text1 = null;
+//text1 = document.getElementsById("text1");
+//const hiddenVisibleClasses = null;
+//hiddenVisibleClasses = text1.classList;
+
+//store the text classes in an array
+
+//textClasses = document.getElementsByClassName("text");
+
+
+
 
 // Create an animate function
 function animate() {
     requestAnimationFrame(animate);
-
+   
     //rotate the earth based on the scroll position
     currentTimeline += (aimTimeline - currentTimeline) * 0.1;
     const rotationX = currentTimeline * Math.PI * 2;
     earth.rotation.set(rotationX,0,0);
-    console.log(currentTimeline);
-
+    //console.log(currentTimeline);
+   
     //change the class of the text from visible to hidden as the user scrolls down
+    /*
     if(currentTimeline < 0.03){
+        //textClasses[0].className = "text visible";
+      
         console.log("earthRotation 1:" + rotationX );
+        //document.getElementById("text1").className = "text visible";
         document.getElementById("text1").className = "text visible";
+
         document.getElementById("text2").className = "text hidden";
         document.getElementById("text3").className = "text hidden";
         document.getElementById("text4").className = "text hidden";
@@ -99,6 +120,7 @@ function animate() {
         document.getElementById("text6").className = "text hidden";
         document.getElementById("text7").className = "text hidden";
     }
+    
 
     if(currentTimeline > 0.03 && currentTimeline < 0.16){
         console.log("earthRotation 2:" + rotationX );
@@ -178,6 +200,8 @@ function animate() {
         document.getElementById("text7").className = "text hidden";
         document.getElementById("text8").className = "text visible";
     }
+    */
+    
 
     renderer.render(scene, camera);
 }
@@ -185,7 +209,41 @@ function animate() {
 //detect when the user scrolls
 window.addEventListener("scroll",function(){
     aimTimeline = pageYOffset / 3000;
-})
+    currentTimeline += (aimTimeline - currentTimeline) * 0.1;
+    
+    //change the class of the text from visible to hidden as the user scrolls down
+    if(currentTimeline < 0.03){ 
+        textClasses[0].className = "text visible";
+        textClasses[1].className = "text hidden";
+    } else if(currentTimeline > 0.03 && currentTimeline < 0.16){
+        textClasses[0].className = "text hidden";
+        textClasses[1].className = "text visible";
+        textClasses[2].className = "text hidden";
+    } else if(currentTimeline > 0.16 && currentTimeline < 0.32){
+        textClasses[1].className = "text hidden";
+        textClasses[2].className = "text visible";
+        textClasses[3].className = "text hidden";	
+    } else if(currentTimeline > 0.32 && currentTimeline < 0.48){
+        textClasses[2].className = "text hidden";
+        textClasses[3].className = "text visible";
+        textClasses[4].className = "text hidden";
+    } else if(currentTimeline > 0.48 && currentTimeline < 0.64){
+        textClasses[3].className = "text hidden";
+        textClasses[4].className = "text visible";
+        textClasses[5].className = "text hidden";
+    } else if(currentTimeline > 0.64 && currentTimeline < 0.8){
+        textClasses[4].className = "text hidden";
+        textClasses[5].className = "text visible";
+        textClasses[6].className = "text hidden";
+    } else if(currentTimeline > 0.8 && currentTimeline < 0.96){
+        textClasses[5].className = "text hidden";
+        textClasses[6].className = "text visible";
+        textClasses[7].className = "text hidden";
+    } else if(currentTimeline > 0.96){
+        textClasses[6].className = "text hidden";
+        textClasses[7].className = "text visible";
+    }
+});
 
 // set the scroll position to 0 when the page refreshes
 window.onbeforeunload = function () {

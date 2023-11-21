@@ -25,16 +25,32 @@
 
  img {
   float: left;
-  padding: 5px;
+  padding: 12px;
+  width: 110px;
+  height: 110px;
  }
 
  h2 {
   text-align: left;
-  margin: 5px;
+  margin: 3px;
+
+ }
+
+ a{
+  float: left;
+  padding: 0px 4px;
  }
 
 .content{
   text-align: left;
+}
+
+#khufu-content {
+  padding: 23px;
+}
+
+#fakelzuch-h{
+  display:inline;
 }
 
   h1  {
@@ -73,13 +89,14 @@
   .hidden {
     visibility: hidden;
     opacity: 0;
-    transition: visibility 0s 0.2s, opacity 1s linear;
+    /*transition: visibility 0s 0.2s, opacity 1s linear;*/
+     transition: opacity 0.8s linear;
   }
 
   .visible {
     visibility: visible;
     opacity: 1;
-    transition: opacity 2s linear;
+    transition: opacity 2.2s linear;
 }
 
 
@@ -93,5 +110,9 @@
     font-size: 16px;
     margin:0em;
     max-width: 300px;
+  }
+  
+  .content {
+    display:inline-block;
   }
 }
