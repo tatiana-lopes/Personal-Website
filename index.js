@@ -34,16 +34,15 @@ let currentTimeline = window.pageYOffset / 3000;
 let aimTimeline = pageYOffset / 3000;
 
 //create ambient light
-const ambient = new THREE.AmbientLight(0xffffff, 0.5);
+const ambient = new THREE.AmbientLight(0xffffff, 0.8);
 scene.add(ambient);
 
-//create light
-const light = new THREE.PointLight(0xffffff, 1);
-light.position.set(20, 20, 8);
-light.rotation.x = 0;
-light.rotation.y = 0;
-light.rotation.z = 0;
-scene.add(light);
+
+
+//create directional light towards the earth 
+const directionalLight = new THREE.DirectionalLight(0xffffff, 0.9);
+directionalLight.position.set(0, 0, 1);
+scene.add(directionalLight);
 
 let earth = null;
 
@@ -51,7 +50,7 @@ const loader = new GLTFLoader();
 
 
 // Load the 3D model
-loader.load('./Assets/Earth_WIP_1.gltf', function (gltf) {
+loader.load('./Assets/Earth_WIP_2.gltf', function (gltf) {
     earth = gltf.scene;
     scene.add(earth);
   
