@@ -85,7 +85,8 @@ function animate() {
 
 //detect when the user scrolls
 window.addEventListener("scroll", function () {
-    aimTimeline = pageYOffset / 3000;
+    const totalScrollableHeight = document.body.scrollHeight - window.innerHeight;
+    aimTimeline = pageYOffset / totalScrollableHeight;
     currentTimeline += (aimTimeline - currentTimeline) * 0.1;
 
     //change the class of the text from visible to hidden as the user scrolls down
