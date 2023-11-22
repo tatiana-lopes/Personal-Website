@@ -6,7 +6,7 @@ import { CSS3DRenderer } from 'three/addons/renderers/CSS3DRenderer.js';
 import { Sky } from 'three/addons/objects/Sky.js';
 
 
-let renderer = new THREE.WebGLRenderer({alpha: true});
+let renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.getElementById("Model3D").appendChild(renderer.domElement);
 let scene = new THREE.Scene();
@@ -49,7 +49,7 @@ textClasses = document.getElementsByClassName("text");
 loader.load('./Assets/Tatiana_Earth_Final.gltf', function (gltf) {
     earth = gltf.scene;
     scene.add(earth);
-  
+
     //adjust the scale  and the position of the earth if it is on a mobile device
     if (window.innerWidth < 600) {
         earth.scale.set(1.9, 1.9, 1.9);
@@ -61,8 +61,8 @@ loader.load('./Assets/Tatiana_Earth_Final.gltf', function (gltf) {
         earth.scale.set(2.5, 2.5, 2.5);
         earth.position.set(0, -1, 0);
     }
-    else{
-        earth.scale.set(4, 4, 4); 
+    else {
+        earth.scale.set(4, 4, 4);
         earth.position.set(0, -1.5, 0);
     }
 
@@ -75,48 +75,48 @@ loader.load('./Assets/Tatiana_Earth_Final.gltf', function (gltf) {
 // Create an animate function
 function animate() {
     requestAnimationFrame(animate);
-   
+
     //rotate the earth based on the scroll position
     currentTimeline += (aimTimeline - currentTimeline) * 0.1;
     const rotationX = currentTimeline * Math.PI * 2;
-    earth.rotation.set(rotationX,0,0);
+    earth.rotation.set(rotationX, 0, 0);
     renderer.render(scene, camera);
 }
 
 //detect when the user scrolls
-window.addEventListener("scroll",function(){
+window.addEventListener("scroll", function () {
     aimTimeline = pageYOffset / 3000;
     currentTimeline += (aimTimeline - currentTimeline) * 0.1;
-    
+
     //change the class of the text from visible to hidden as the user scrolls down
-    if(currentTimeline < 0.03){ 
+    if (currentTimeline < 0.03) {
         textClasses[0].className = "text visible";
         textClasses[1].className = "text hidden";
-    } else if(currentTimeline > 0.03 && currentTimeline < 0.16){
+    } else if (currentTimeline > 0.03 && currentTimeline < 0.16) {
         textClasses[0].className = "text hidden";
         textClasses[1].className = "text visible";
         textClasses[2].className = "text hidden";
-    } else if(currentTimeline > 0.16 && currentTimeline < 0.32){
+    } else if (currentTimeline > 0.16 && currentTimeline < 0.32) {
         textClasses[1].className = "text hidden";
         textClasses[2].className = "text visible";
-        textClasses[3].className = " grid-container1 text hidden";	
-    } else if(currentTimeline > 0.32 && currentTimeline < 0.48){
+        textClasses[3].className = " grid-container1 text hidden";
+    } else if (currentTimeline > 0.32 && currentTimeline < 0.48) {
         textClasses[2].className = "text hidden";
         textClasses[3].className = "grid-container1 text visible";
         textClasses[4].className = "text hidden";
-    } else if(currentTimeline > 0.48 && currentTimeline < 0.64){
+    } else if (currentTimeline > 0.48 && currentTimeline < 0.64) {
         textClasses[3].className = "grid-container1 text hidden";
         textClasses[4].className = "text visible";
         textClasses[5].className = "grid-container2 text hidden";
-    } else if(currentTimeline > 0.64 && currentTimeline < 0.8){
+    } else if (currentTimeline > 0.64 && currentTimeline < 0.8) {
         textClasses[4].className = "text hidden";
         textClasses[5].className = "grid-container2 text visible";
         textClasses[6].className = "text hidden";
-    } else if(currentTimeline > 0.8 && currentTimeline < 0.96){
+    } else if (currentTimeline > 0.8 && currentTimeline < 0.96) {
         textClasses[5].className = "grid-container2 text hidden";
         textClasses[6].className = "text visible";
         textClasses[7].className = "text hidden";
-    } else if(currentTimeline > 0.96){
+    } else if (currentTimeline > 0.96) {
         textClasses[6].className = "text hidden";
         textClasses[7].className = "text visible";
     }
@@ -140,8 +140,8 @@ window.addEventListener("resize", function () {
         earth.scale.set(2.5, 2.5, 2.5);
         earth.position.set(0, -1, 0);
     }
-    else{
-        earth.scale.set(4, 4, 4); 
+    else {
+        earth.scale.set(4, 4, 4);
         earth.position.set(0, -1.5, 0);
     }
     camera.aspect = window.innerWidth / window.innerHeight;
