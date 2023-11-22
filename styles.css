@@ -5,6 +5,7 @@
     color: black; 
   }
  
+  /*hides the scrollbar*/
   ::-webkit-scrollbar{ display: none }
 
   body {
@@ -34,12 +35,10 @@
   text-align: left;
  }
 
-
  a{
   word-wrap: break-word; 
   max-width: 100%
  }
-
 
   h1  {
     font-family: 'Oregano', cursive;
@@ -51,7 +50,6 @@
     padding: 15px;
     text-align: center;
   }
-
 
   .thumbnail {
     grid-area: thumbnail;
@@ -90,7 +88,6 @@
     padding: 6px;
   }
 
-
   .grid-container2{
     display:grid;
     grid-template-columns: minmax(90px, auto) minmax(100px, 1fr);
@@ -105,11 +102,9 @@
   }
 
   div.text{
-
     font-family: 'PT Sans', sans-serif;
     font-size: 20px;
     position: fixed;
-    top: 15vh;
     width: 100%;
     max-width: 900px;
     padding: 10px;
@@ -122,7 +117,6 @@
   .hidden {
     visibility: hidden;
     opacity: 0;
-    /*transition: visibility 0s 0.2s, opacity 1s linear;*/
      transition: opacity 0.8s linear;
   }
 
@@ -133,7 +127,7 @@
 }
 
 
-/* If the screen size is 600px or less, set the font-size of <div> to 30px */
+/* Responsive sizes for mobile */
 @media only screen and (max-width: 900px) {
   h1 {
     font-size: 35px;
