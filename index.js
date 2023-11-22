@@ -82,10 +82,11 @@ function animate() {
     earth.rotation.set(rotationX, 0, 0);
     renderer.render(scene, camera);
 }
-
+let totalScrollableHeight = null;
 //detect when the user scrolls
 window.addEventListener("scroll", function () {
     const totalScrollableHeight = document.body.scrollHeight - window.innerHeight;
+    console.log(totalScrollableHeight);
     aimTimeline = pageYOffset / totalScrollableHeight;
     currentTimeline += (aimTimeline - currentTimeline) * 0.1;
 
@@ -129,19 +130,21 @@ window.onbeforeunload = function () {
 }
 
 window.addEventListener('load', function() {
-    const setMinHeight = () => {
-      const vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty('--vh', `${vh}px`);
-    };
-  
-    setMinHeight();
-  
-    //window.addEventListener('resize', setMinHeight);
+    //get the bodys height and the height of the window
+   
+    totalScrollableHeight = document.body.scrollHeight - window.innerHeight;
+    const vh = window.innerHeight * 100 / totalScrollableHeight;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    //console.log(document.body.scrollHeight);
   });
-
+  
+  
 // position the earth always to the center of the screen when the window is resized
 window.addEventListener("resize", function () {
-    //adjust the scale  and the position of the earth if it is on a mobile device
+    totalScrollableHeight = document.body.scrollHeight - window.innerHeight;
+    const vh = window.innerHeight * 100 / totalScrollableHeight;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+
 
     //setMinHeight();
     if (window.innerWidth < 600) {
