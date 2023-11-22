@@ -256,7 +256,7 @@ window.addEventListener("resize", function () {
     //adjust the scale  and the position of the earth if it is on a mobile device
     if (window.innerWidth < 600) {
         earth.scale.set(1.9, 1.9, 1.9);
-        earth.position.set(0, 0, 0);
+        earth.position.set(0, -1, 0);
     }
 
     //adjust the scale and the position of the earth if it is on a an ipad
