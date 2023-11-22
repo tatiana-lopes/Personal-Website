@@ -13,6 +13,8 @@ let scene = new THREE.Scene();
 scene.background = null
 // make the background transparent
 renderer.setClearColor(0x000000, 0);
+renderer.setPixelRatio(window.devicePixelRatio);
+renderer.setSize(window.innerWidth, window.innerHeight);
 
 const fov = 60;
 const aspect = window.innerWidth / window.innerHeight;
