@@ -32,15 +32,18 @@
 
  h2 {
   text-align: left;
-  margin: 3px;
+
 
  }
+
+
 
  a{
-  float: left;
-  padding: 0px 4px;
+  text-align: left;
+  padding: 0px 6px;
  }
 
+/*
 .content{
   text-align: left;
 }
@@ -49,10 +52,11 @@
   padding: 23px;
 }
 
+
 #fakelzuch-h{
   display:inline;
 }
-
+*/
   h1  {
     font-family: 'Oregano', cursive;
     position: fixed;
@@ -64,6 +68,54 @@
     text-align: center;
   }
 
+  .thumbnail {
+    grid-area: thumbnail;
+  }
+
+  .title {
+    grid-area: title;
+   
+  }
+
+  .text-content{
+    grid-area: text-content;
+    text-align: left;
+
+  }
+
+  .links{
+    grid-area: links;
+   
+  }
+
+  .grid-container1{
+    display:grid;
+   
+    grid-template-columns: 110px, 300px;
+    grid-template-rows: 110px, 300px;
+    grid-template-areas:
+    'thumbnail title'
+    'thumbnail text-content';
+    grid-gap: 4px;
+    padding: 2px;
+  }
+
+  
+  .grid-container2{
+    display:grid;
+    
+   
+    grid-template-columns: 110px, 300px;
+    grid-template-rows: 110px, 300px;
+    grid-gap: 10px;
+    grid-template-areas:
+    'thumbnail title'
+    'thumbnail links'
+    'text-content text-content';
+    grid-gap: 4px;
+    padding: 2px;
+    background-color: red;
+  }
 
   div.text{
 
@@ -82,7 +134,6 @@
     /*center the div*/
     left: 50%;
     transform: translateX(-50%); 
-   
 
   }
 
@@ -101,7 +152,7 @@
 
 
 /* If the screen size is 600px or less, set the font-size of <div> to 30px */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 900px) {
   h1 {
     font-size: 30px;
   }
@@ -114,5 +165,15 @@
   
   .content {
     display:inline-block;
+  }
+
+  .grid-container1{
+    display:grid;
+    grid-template-areas:
+    'thumbnail title'
+    'text-content text-content';
+    grid-gap: 3px;
+    padding: 3px;
+    
   }
 }

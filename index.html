@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oregano&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <title>Tatiana's Journey</title>
-   <script type="importmap">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oregano&family=PT+Sans:wght@400;700&display=swap"
+    rel="stylesheet">
+  <title>Tatiana's Journey</title>
+  <script type="importmap">
     {
       "imports": {
         "three": "https://unpkg.com/three@v0.149.0/build/three.module.js",
@@ -17,32 +19,66 @@
       }
     }
   </script>
-  </head>
-  <body>
-   
-    <div class="sticky" id="Model3D"></div>
-   
-    <h1>Tatiana's Journey</h1>
-    <div class="text visible" id="text1"><p>Scroll down to explore</p></div>
-    <div class="text hidden" id="text2"><p>Hello, I'm Tatiana, a 23-year-old student born in Luxembourg, enthusiastic about merging technology and creativity.</p></div>
-    <div class="text hidden" id="text3"><p>After highschool, I decided to follow my informatics passion and started a Bachelor's Degree in Applied Information Technology from the University of Luxembourg.</p></div>
-    <div class="text hidden" id="text4">
-      <img src="./Assets/Pyramid.png" alt="The Great Pyramid of Khufu"> 
-     
-      <h2><a href="https://github.com/silva-rui/swift-project" target="_blank">The Great Pyramid of Khufu</a></h2><br>
-      <p class="content" id="khufu-content">One of my favourite's group project was a terminal-based game developed with Swift. My roles were Game Design, and the development of the missions.</p>
+</head>
+
+<body>
+
+  <div class="sticky" id="Model3D"></div>
+
+  <h1>Tatiana's Journey</h1>
+  <div class="text visible" id="text1">
+    <p>Scroll down to explore</p>
+  </div>
+  <div class="text hidden" id="text2">
+    <p>Hello, I'm Tatiana, a 23-year-old student born in Luxembourg, enthusiastic about merging technology and
+      creativity.</p>
+  </div>
+  <div class="text hidden" id="text3">
+    <p>After highschool, I decided to follow my informatics passion and started a Bachelor's Degree in Applied
+      Information Technology from the University of Luxembourg.</p>
+  </div>
+  <div class="grid-container1 text hidden" id="text4">
+    <div class="thumbnail">
+      <img src="./Assets/Pyramid.png" alt="The Great Pyramid of Khufu">
     </div>
-    <div class="text hidden" id="text5"><p>I had the opportunity to do an enriching Erasmus semester in Lisbon, which introduced me to Product Design, and I loved it.</p></div>
-    <div class="text hidden" id="text6">
-      <img src="./Assets/Fox.jpg" alt="Fox"> 
+    <div class="title">
+      <h2><a href="https://github.com/silva-rui/swift-project" target="_blank">The Great Pyramid of Khufu</a></h2><br>
+    </div>
+    <div class="text-content">
+      <p>One of my favourite group projects was a terminal-based game developed with Swift. My roles were game design, and quest development.
+      </p>
+    </div>
+  </div>
+  <div class="text hidden" id="text5">
+    <p>I had the opportunity to do an enriching Erasmus semester in Lisbon, which introduced me to Product Design, and I
+      loved it.</p>
+  </div>
+  <div class="grid-container2 text hidden" id="text6">
+    <div class="thumbnail">
+      <img src="./Assets/Fox.jpg" alt="Fox">
+    </div>
+    <div class="title">
       <h2 id="fakelzuch-h">Fakelzuch</h2>
-        <a href="https://play.google.com/store/apps/details?id=lu.fakelzuch&hl=en&gl=US" target="_blank">Google Play</a>
-        <a href="https://apps.apple.com/gb/app/fakelzuch/id645000063" target="_blank">App Store</a><br><br>
-      <p class="content">For my Bachelor Thesis during an internship, I immersed myself in game design, 3D modeling and game development for the creation of a mobile game celebrating Luxembourg's national holiday.</p></div>
-    <div class="text hidden" id="text7"><p>Driven by a passion for design and creative programming, I am currently embarked on a Master's in Multimedia and Design in Coimbra.</p></div>
-    <div class="text hidden" id="text8"><p>Thank you for joining me on this journey!</p></div>
+    </div>
+    <div class="links">
+      <a href="https://play.google.com/store/apps/details?id=lu.fakelzuch&hl=en&gl=US" target="_blank">Google Play</a>
+      <a href="https://apps.apple.com/gb/app/fakelzuch/id645000063" target="_blank">App Store</a>
+    </div>
+   <div class="text-content">
+    <p class="content">For my Bachelor Thesis during an internship, I immersed myself in game design, 3D modeling and
+      game development for the creation of a mobile game celebrating Luxembourg's national holiday.</p>
+   </div>
+
+  </div>
+  <div class="text hidden" id="text7">
+    <p>Driven by a passion for design and creative programming, I am currently embarked on a Master's in Multimedia and
+      Design in Coimbra.</p>
+  </div>
+  <div class="text hidden" id="text8">
+    <p>Thank you for joining me on this journey!</p>
+  </div>
 
   <script type="module" src="./index.js"></script>
-  </body>
+</body>
+
 </html>
-  

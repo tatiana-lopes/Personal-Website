@@ -55,7 +55,7 @@ let textClasses = null;
 textClasses = document.getElementsByClassName("text");
 
 // Load the 3D model
-loader.load('./Assets/Earth_WIP_2.gltf', function (gltf) {
+loader.load('./Assets/Tatiana_Earth_Final.gltf', function (gltf) {
     earth = gltf.scene;
     scene.add(earth);
   
@@ -222,21 +222,21 @@ window.addEventListener("scroll",function(){
     } else if(currentTimeline > 0.16 && currentTimeline < 0.32){
         textClasses[1].className = "text hidden";
         textClasses[2].className = "text visible";
-        textClasses[3].className = "text hidden";	
+        textClasses[3].className = " grid-container1 text hidden";	
     } else if(currentTimeline > 0.32 && currentTimeline < 0.48){
         textClasses[2].className = "text hidden";
-        textClasses[3].className = "text visible";
+        textClasses[3].className = "grid-container1 text visible";
         textClasses[4].className = "text hidden";
     } else if(currentTimeline > 0.48 && currentTimeline < 0.64){
-        textClasses[3].className = "text hidden";
+        textClasses[3].className = "grid-container1 text hidden";
         textClasses[4].className = "text visible";
-        textClasses[5].className = "text hidden";
+        textClasses[5].className = "grid-container2 text hidden";
     } else if(currentTimeline > 0.64 && currentTimeline < 0.8){
         textClasses[4].className = "text hidden";
-        textClasses[5].className = "text visible";
+        textClasses[5].className = "grid-container2 text visible";
         textClasses[6].className = "text hidden";
     } else if(currentTimeline > 0.8 && currentTimeline < 0.96){
-        textClasses[5].className = "text hidden";
+        textClasses[5].className = "grid-container2 text hidden";
         textClasses[6].className = "text visible";
         textClasses[7].className = "text hidden";
     } else if(currentTimeline > 0.96){
