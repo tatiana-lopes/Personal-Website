@@ -53,7 +53,7 @@ loader.load('./Assets/Tatiana_Earth_Final.gltf', function (gltf) {
     //adjust the scale  and the position of the earth if it is on a mobile device
     if (window.innerWidth < 600) {
         earth.scale.set(1.9, 1.9, 1.9);
-        earth.position.set(0, 0, 0);
+        earth.position.set(0, -1, 0);
     }
 
     //adjust the scale and the position of the earth if it is on a an ipad
@@ -127,9 +127,22 @@ window.onbeforeunload = function () {
     window.scrollTo(0, 0);
 }
 
+window.addEventListener('load', function() {
+    const setMinHeight = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    };
+  
+    setMinHeight();
+  
+    //window.addEventListener('resize', setMinHeight);
+  });
+
 // position the earth always to the center of the screen when the window is resized
 window.addEventListener("resize", function () {
     //adjust the scale  and the position of the earth if it is on a mobile device
+
+    //setMinHeight();
     if (window.innerWidth < 600) {
         earth.scale.set(1.9, 1.9, 1.9);
         earth.position.set(0, -1, 0);
@@ -149,3 +162,5 @@ window.addEventListener("resize", function () {
     renderer.setSize(window.innerWidth, window.innerHeight);
 
 }, false);
+
+

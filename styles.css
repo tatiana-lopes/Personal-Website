@@ -15,7 +15,7 @@ body {
   background: rgb(213, 255, 255);
   background: linear-gradient(180deg, rgba(213, 255, 255, 1) 0%, rgba(117, 208, 240, 1) 50%, rgba(29, 98, 157, 1) 100%);
   /*how much i want to scroll down plus the actual height of the browser*/
-  min-height: calc(3000px + 100vh);
+  min-height: calc(3000px + var(--vh, 100vh));
 }
 
 div.sticky {
