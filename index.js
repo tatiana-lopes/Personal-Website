@@ -1,9 +1,6 @@
 
 import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { CSS3DRenderer } from 'three/addons/renderers/CSS3DRenderer.js';
-import { Sky } from 'three/addons/objects/Sky.js';
 import WebGL from 'three/addons/capabilities/WebGL.js';
 
 //if the webgl version is not supported, show a notice to the user
@@ -31,26 +28,21 @@ if (!WebGL.isWebGLAvailable()) {
     camera.position.set(0, 3, 6)
     scene.add(camera);
 
-    //how far down have I scrolled down the window
     let currentTimeline = null;
-
-    //smooth movement
     let aimTimeline = null;
-
     let totalScrollableHeight = null;
 
-    //create ambient light
+    //ambient light
     const ambient = new THREE.AmbientLight(0xffffff, 0.8);
     scene.add(ambient);
 
-    //create directional light towards the earth 
+    //directional light towards the earth 
     const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
     directionalLight.position.set(0, 0, 1);
     scene.add(directionalLight);
 
     let earth = null;
     const loader = new GLTFLoader();
-
 
     //store the text classes in an array
     let textClasses = null;
@@ -96,7 +88,7 @@ if (!WebGL.isWebGLAvailable()) {
     //detect when the user scrolls
     window.addEventListener("scroll", function () {
         const totalScrollableHeight = document.body.scrollHeight - window.innerHeight;
-        aimTimeline = pageYOffset / totalScrollableHeight;
+        aimTimeline = window.scrollY / totalScrollableHeight;
         currentTimeline += (aimTimeline - currentTimeline) * 0.1;
 
         //change the class of the text from visible to hidden as the user scrolls down
@@ -146,7 +138,6 @@ if (!WebGL.isWebGLAvailable()) {
 
     });
 
-
     // position the earth always to the center of the screen when the window is resized
     window.addEventListener("resize", function () {
         totalScrollableHeight = document.body.scrollHeight - window.innerHeight;
@@ -157,7 +148,6 @@ if (!WebGL.isWebGLAvailable()) {
             earth.scale.set(1.9, 1.9, 1.9);
             earth.position.set(0, -1, 0);
         }
-
         //adjust the scale and the position of the earth if it is on a an ipad
         else if (window.innerWidth < 1025) {
             earth.scale.set(2.5, 2.5, 2.5);
