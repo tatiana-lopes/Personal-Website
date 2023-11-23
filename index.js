@@ -13,6 +13,8 @@ let scene = new THREE.Scene();
 scene.background = null
 // make the background transparent
 renderer.setClearColor(0x000000, 0);
+
+//ensures that the pixels of mobiles have a better resolution
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 
@@ -25,10 +27,12 @@ camera.position.set(0, 3, 6)
 scene.add(camera);
 
 //how far down have I scrolled down the window
-let currentTimeline = window.pageYOffset / 3000;
+let currentTimeline = null;
 
 //smooth movement
-let aimTimeline = pageYOffset / 3000;
+let aimTimeline = null;
+
+let totalScrollableHeight = null;
 
 //create ambient light
 const ambient = new THREE.AmbientLight(0xffffff, 0.8);
@@ -73,7 +77,6 @@ loader.load('./Assets/Tatiana_Earth_Final.gltf', function (gltf) {
     console.error(error);
 });
 
-
 // Create an animate function
 function animate() {
     requestAnimationFrame(animate);
@@ -84,11 +87,10 @@ function animate() {
     earth.rotation.set(rotationX, 0, 0);
     renderer.render(scene, camera);
 }
-let totalScrollableHeight = null;
+
 //detect when the user scrolls
 window.addEventListener("scroll", function () {
     const totalScrollableHeight = document.body.scrollHeight - window.innerHeight;
-    console.log(totalScrollableHeight);
     aimTimeline = pageYOffset / totalScrollableHeight;
     currentTimeline += (aimTimeline - currentTimeline) * 0.1;
 
@@ -133,11 +135,10 @@ window.onbeforeunload = function () {
 
 window.addEventListener('load', function() {
     //get the bodys height and the height of the window
-   
     totalScrollableHeight = document.body.scrollHeight - window.innerHeight;
     const vh = window.innerHeight * 100 / totalScrollableHeight;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
-    //console.log(document.body.scrollHeight);
+   
   });
   
   
@@ -147,8 +148,6 @@ window.addEventListener("resize", function () {
     const vh = window.innerHeight * 100 / totalScrollableHeight;
     document.documentElement.style.setProperty('--vh', `${vh}px`);
 
-
-    //setMinHeight();
     if (window.innerWidth < 600) {
         earth.scale.set(1.9, 1.9, 1.9);
         earth.position.set(0, -1, 0);
